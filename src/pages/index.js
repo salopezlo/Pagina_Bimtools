@@ -27,14 +27,14 @@ export default function Home() {
           Empezar por la etapa 1
         </Link>
       </header>
-      <main className={styles.stages}>
+      <div className={styles.stages}>
         {ETAPAS.map((e) => (
           <Link key={e.n} to={e.to} className={styles.stage}>
             <span className={styles.stageNum}>{e.n}</span>
             <span className={styles.stageName}>{e.titulo}</span>
           </Link>
         ))}
-      </main>
+      </div>
     </Layout>
   );
 }
