@@ -1,29 +1,27 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
-import {OWL_FACE_PATH} from './owlFacePath';
+import {OWL_RINGS, OWL_RING_RADIUS, OWL_PATHS} from './owlFacePath';
 
-// Ojo de búho: reemplaza cada "O" del wordmark.
-// La pupila (+ brillo) se agrupa en .pupil para el parpadeo.
-function OwlEye() {
+// Ojo de búho calcado de static/img/owl-eyebrow-reference.png (ver scripts/trace-owl-face.py).
+// El viewBox se centra en el anillo del PNG, así que el trazado conserva sus coordenadas originales.
+// La pupila (el brillo es un hueco) lleva .pupil para el parpadeo.
+function OwlEye({side}) {
+  const [cx, cy] = OWL_RINGS[side];
+  const r = OWL_RING_RADIUS;
   return (
-    <svg className={styles.eye} viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="3" />
-      <g className={styles.pupil}>
-        <circle cx="12" cy="12" r="4.5" fill="currentColor" />
-        <circle cx="14" cy="10" r="1.4" fill="var(--ifm-background-color)" />
-      </g>
+    <svg className={styles.eye} viewBox={`${cx - r} ${cy - r} ${2 * r} ${2 * r}`} aria-hidden="true">
+      <path d={OWL_PATHS['ring' + side]} fill="currentColor" fillRule="evenodd" />
+      <path className={styles.pupil} d={OWL_PATHS['pup' + side]} fill="currentColor" fillRule="evenodd" />
     </svg>
   );
 }
 
-// Cejas, puente y pico: calco exacto de static/img/owl-eyebrow-reference.png.
-// El viewBox es el del PNG (130×77); styles.module.css lo escala y posiciona para que los
-// anillos de la referencia coincidan con las dos O. Casi invisibles en reposo; opacity 1 con hover.
+// Cejas, puente y pico (calco del mismo PNG). Casi invisibles en reposo; opacity 1 con hover.
 function OwlFace() {
   return (
     <svg className={styles.face} viewBox="0 0 130 77" aria-hidden="true">
-      <path d={OWL_FACE_PATH} fill="currentColor" fillRule="evenodd" />
+      <path d={OWL_PATHS.face} fill="currentColor" fillRule="evenodd" />
     </svg>
   );
 }
@@ -35,8 +33,8 @@ export default function Brand({size = 'md', className}) {
       <span aria-hidden="true">BIMT</span>
       <span className={styles.eyes} aria-hidden="true">
         <OwlFace />
-        <OwlEye />
-        <OwlEye />
+        <OwlEye side="L" />
+        <OwlEye side="R" />
       </span>
       <span aria-hidden="true">LS</span>
     </span>

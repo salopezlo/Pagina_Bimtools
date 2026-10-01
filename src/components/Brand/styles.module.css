@@ -8,6 +8,9 @@
   color: var(--ifm-font-color-base);
   white-space: nowrap;
 }
+/* Escala: el anillo exterior de la referencia (43.1 px) = 0.7865em, es decir 1 px del PNG = --px.
+   Todo el wordmark-búho se coloca en píxeles del PNG (130×77) para coincidir con la referencia. */
+.brand { --px: 0.018249em; }
 .eyes {
   position: relative;
   display: inline-flex;
@@ -15,20 +18,19 @@
 }
 .eye {
   position: relative; /* pinta por encima de .face */
-  width: 0.82em;
-  height: 0.82em;
+  width: calc(43.1 * var(--px));
+  height: calc(43.1 * var(--px));
   color: var(--ifm-color-primary);
-  margin: 0 0.0126em; /* separación entre O = referencia (centros a 46.31 px, anillo 43.06 px) */
+  /* centros de los anillos a 46.31 px: margen = (46.31 - 43.1) / 2 px */
+  margin: 0 calc(1.605 * var(--px));
 }
 
-/* Cejas + puente + pico: overlay calcado del PNG de referencia (130×77 px).
-   Escala: anillo exterior de la referencia = 43.06 px = 0.7858em (el de las O)  →  1 px = 0.018249em.
-   Los anillos de la referencia (centros (46.34, 42.93) y (92.65, 42.71)) quedan sobre las dos O. */
+/* Cejas + puente + pico: overlay en coordenadas del PNG.
+   Centro del anillo izquierdo (46.34, 42.93): x = 1.605 + 21.55 en .eyes; y = 21.55 (centro de .eyes). */
 .face {
-  --px: 0.018249em;
   position: absolute;
-  left: calc(0.4226em - 46.34 * var(--px));
-  top: calc(0.41em - 42.82 * var(--px));
+  left: calc((1.605 + 21.55 - 46.34) * var(--px));
+  top: calc((21.55 - 42.82) * var(--px));
   width: calc(130 * var(--px));
   height: calc(77 * var(--px));
   color: #e6e6e6;
