@@ -8,7 +8,9 @@ etapa: "Etapa 2 · Modelar"
 
 ## Qué hace
 
-_Contenido pendiente_
+Genera hasta 4 vistas de alzado individuales por habitación: Este, Norte, Oeste y Sur. El usuario elige cuáles direcciones generar.
+
+Las vistas se nombran automáticamente como `Alzado_NombreHabitación_Dirección` (por ejemplo, `Alzado_Sala_Norte`) y el plugin evita nombres duplicados. Si se selecciona una plantilla de alzado, se aplica automáticamente a las vistas generadas.
 
 ## Cuándo usarla
 

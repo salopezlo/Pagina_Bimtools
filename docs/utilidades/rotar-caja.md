@@ -8,19 +8,22 @@ etapa: "Utilidad"
 
 ## Qué hace
 
-_Contenido pendiente_
+Rota la caja de sección (Section Box) de una vista 3D para alinearla con una cara específica del modelo.
 
 ## Cuándo usarla
 
-_Contenido pendiente_
+Para aislar y visualizar una fachada no ortogonal, un muro diagonal o cualquier cara que no esté alineada con los ejes del proyecto.
 
 ## Cómo se usa
 
-_Contenido pendiente_
+1. Abrir una vista 3D.
+2. Si la caja de sección no está activa, el plugin la activa automáticamente.
+3. Seleccionar una cara del modelo.
+4. El plugin calcula la normal de esa cara y rota la caja de sección para alinearla con ella.
 
 ## Requisitos
 
-_Contenido pendiente_
+La vista activa debe ser una vista 3D.
 
 ## Limitaciones
 
