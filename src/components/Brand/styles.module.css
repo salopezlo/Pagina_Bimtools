@@ -1,0 +1,59 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.04em;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--ifm-font-color-base);
+  white-space: nowrap;
+}
+/* Escala: el anillo exterior de la referencia (43.1 px) = 0.7865em, es decir 1 px del PNG = --px.
+   Todo el wordmark-búho se coloca en píxeles del PNG (130×77) para coincidir con la referencia. */
+.brand { --px: 0.018249em; }
+.eyes {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.eye {
+  position: relative; /* pinta por encima de .face */
+  width: calc(43.1 * var(--px));
+  height: calc(43.1 * var(--px));
+  color: var(--ifm-color-primary);
+  /* centros de los anillos a 46.31 px: margen = (46.31 - 43.1) / 2 px */
+  margin: 0 calc(1.605 * var(--px));
+}
+
+/* Cejas + puente + pico: overlay en coordenadas del PNG.
+   Centro del anillo izquierdo (46.34, 42.93): x = 1.605 + 21.55 en .eyes; y = 21.55 (centro de .eyes). */
+.face {
+  position: absolute;
+  left: calc((1.605 + 21.55 - 46.34) * var(--px));
+  top: calc((21.55 - 42.82) * var(--px));
+  width: calc(130 * var(--px));
+  height: calc(77 * var(--px));
+  color: #e6e6e6;
+  opacity: 0.12;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.brand:hover .face { opacity: 1; }
+
+/* Parpadeo: la pupila se achica verticalmente un instante cada ~4.6 s. */
+.pupil {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 4.6s infinite;
+}
+@keyframes blink {
+  0%, 94%, 100% { transform: scaleY(1); }
+  96.5% { transform: scaleY(0.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pupil { animation: none; }
+  .face { transition: none; }
+}
+
+.md { font-size: 1.25rem; }
+.xl { font-size: clamp(2.6rem, 9vw, 5.5rem); }

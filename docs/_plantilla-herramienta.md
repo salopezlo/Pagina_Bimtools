@@ -1,10 +1,13 @@
 ---
+# Copiar este archivo a docs/<etapa>/NN-nombre.md y completar.
+# `estado` (opcional): Disponible | En desarrollo | Planeado
 sidebar_position: 1
 herramienta: true
-etapa: "Etapa 3 · Documentar"
+etapa: "Etapa N · Nombre"
+# estado: En desarrollo
 ---
 
-# 6. Numeración de vértices con directriz
+# N. Nombre de la herramienta
 
 ## Qué hace
 
