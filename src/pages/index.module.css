@@ -44,5 +44,7 @@
   color: var(--ifm-font-color-base);
   text-decoration: none;
 }
-.stageNum { font-size: 2.2rem; font-weight: 800; line-height: 1; color: var(--ifm-color-primary); }
+.stageHead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
+.stageIcon { color: var(--ifm-color-primary); }
+.stageNum { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ifm-color-emphasis-600); }
 .stageName { font-size: 1.1rem; font-weight: 600; }

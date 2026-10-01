@@ -8,11 +8,46 @@
   color: var(--ifm-font-color-base);
   white-space: nowrap;
 }
+.eyes {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
 .eye {
   width: 0.82em;
   height: 0.82em;
   color: var(--ifm-color-primary);
   margin: 0 0.02em;
 }
+
+/* Cejas + pico: overlay sobre las dos O. */
+.face {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: -0.38em;
+  height: auto;
+  color: #e6e6e6;
+  opacity: 0.12;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.brand:hover .face { opacity: 1; }
+
+/* Parpadeo: la pupila se achica verticalmente un instante cada ~4.6 s. */
+.pupil {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 4.6s infinite;
+}
+@keyframes blink {
+  0%, 94%, 100% { transform: scaleY(1); }
+  96.5% { transform: scaleY(0.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pupil { animation: none; }
+  .face { transition: none; }
+}
+
 .md { font-size: 1.25rem; }
 .xl { font-size: clamp(2.6rem, 9vw, 5.5rem); }
