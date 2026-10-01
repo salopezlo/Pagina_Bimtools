@@ -17,34 +17,46 @@
   font-size: 1.2rem;
   color: var(--ifm-color-emphasis-700);
 }
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.actions .download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+.actions .download:hover { color: #1a1a1a; }
 .stages {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
   width: 100%;
   box-sizing: border-box;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 1rem 1rem 5rem;
+  padding: 0.5rem 1rem 4rem;
 }
 .stage {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  align-items: center;
   gap: 0.5rem;
-  padding: 1.25rem;
+  padding: 0.4rem 0.8rem;
   border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 12px;
+  border-radius: 999px;
   background: #222;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--ifm-font-color-base);
-  transition: border-color 0.15s, transform 0.15s;
+  transition: border-color 0.15s;
 }
 .stage:hover {
   border-color: var(--ifm-color-primary);
-  transform: translateY(-2px);
   color: var(--ifm-font-color-base);
   text-decoration: none;
 }
-.stageHead { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
-.stageIcon { color: var(--ifm-color-primary); }
-.stageNum { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ifm-color-emphasis-600); }
-.stageName { font-size: 1.1rem; font-weight: 600; }
+.stageIcon { color: var(--ifm-color-primary); flex-shrink: 0; }

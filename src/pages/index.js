@@ -1,8 +1,9 @@
 import React from 'react';
+import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import {IconFolder, IconCube, IconFileText, IconCalculator, IconSend} from '@tabler/icons-react';
+import {IconFolder, IconCube, IconFileText, IconCalculator, IconSend, IconDownload} from '@tabler/icons-react';
 import Brand from '@site/src/components/Brand';
 import styles from './index.module.css';
 
@@ -24,18 +25,21 @@ export default function Home() {
           <Brand size="xl" />
         </h1>
         <p className={styles.tagline}>Deja de adivinar el orden. BIMTOOLS guía cada paso de tu proyecto en Revit, desde la carpeta inicial hasta la entrega final.</p>
-        <Link className="button button--primary button--lg" to={ETAPAS[0].to}>
-          Empezar por la etapa 1
-        </Link>
+        <div className={styles.actions}>
+          <Link className="button button--primary button--lg" to={ETAPAS[0].to}>
+            Comenzar
+          </Link>
+          <button type="button" className={clsx('button button--outline button--primary button--lg', styles.download)}>
+            <IconDownload size={20} stroke={2} aria-hidden="true" />
+            Descargar plugin
+          </button>
+        </div>
       </header>
       <div className={styles.stages}>
         {ETAPAS.map((e) => (
           <Link key={e.n} to={e.to} className={styles.stage}>
-            <span className={styles.stageHead}>
-              <e.Icon className={styles.stageIcon} size={36} stroke={1.5} aria-hidden="true" />
-              <span className={styles.stageNum}>Etapa {e.n}</span>
-            </span>
-            <span className={styles.stageName}>{e.titulo}</span>
+            <e.Icon className={styles.stageIcon} size={20} stroke={1.75} aria-hidden="true" />
+            <span>{e.titulo}</span>
           </Link>
         ))}
       </div>
