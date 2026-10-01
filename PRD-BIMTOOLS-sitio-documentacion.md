@@ -116,10 +116,11 @@ A diferencia de Nonica (organizado por categoría técnica), BIMTOOLS se organiz
 
 ## 7. Preguntas abiertas — resolver antes de escribir contenido real
 
-1. **¿Cuál sistema de parámetros de organización de carpetas es el vigente?**
-   - Opción A: `NamingChecker` → pestaña Planos y Vistas → parámetros `01_Disciplina`, `02_Zona`, `03_Especialidad` (documentado en `PRD-BIMTools.md` sección 16 y 19)
-   - Opción B: diálogo de `BIMTools_MCPServer` → "Crear parámetros de organización de planos" → campos `Disciplina`, `Tipo de Plano`, `Subgrupo` (visto en captura de pantalla)
-   - Son nombres de campo distintos para lo que parece ser el mismo propósito. Puede que uno haya reemplazado al otro, o que convivan por error. **Bloquea la página 1 de la Etapa 1.**
+1. **✅ RESUELTO (verificado contra el modelo real "Torre 2" vía MCP, 1 oct 2026):** Ni el esquema de `NamingChecker` (`01_Disciplina/02_Zona/03_Especialidad`) ni el del diálogo de `BIMTools_MCPServer` (`Disciplina/Tipo de Plano/Subgrupo`) son los que organizan los planos hoy. El sistema real, en uso en los 449 planos del proyecto activo, es:
+   - **Categoria** (ej. `01_Arquitectura`)
+   - **Grupo** (ej. `1.0 Arquitectonicos`)
+   - **Subgrupo** (ej. `1.Plantas por piso`)
+   Los campos `Disciplina` y `Tipo de Plano` del diálogo de MCPServer existen como parámetros pero están **vacíos en todos los planos** — es un sistema nuevo sin adoptar aún, no el vigente. La página 1 de la Etapa 1 debe documentar Categoria/Grupo/Subgrupo como el sistema real, y puede mencionar Disciplina/Tipo de Plano como "en evaluación, no adoptado todavía".
 
 2. ¿`ImportarExcel`, `ColoreadorBIM` y `RotarCaja` entran en el flujo numerado o quedan como utilidades sueltas permanentemente? Depende de qué hacen exactamente.
 
