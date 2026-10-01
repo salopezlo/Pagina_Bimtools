@@ -1,0 +1,18 @@
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.04em;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--ifm-font-color-base);
+  white-space: nowrap;
+}
+.eye {
+  width: 0.82em;
+  height: 0.82em;
+  color: var(--ifm-color-primary);
+  margin: 0 0.02em;
+}
+.md { font-size: 1.25rem; }
+.xl { font-size: clamp(2.6rem, 9vw, 5.5rem); }

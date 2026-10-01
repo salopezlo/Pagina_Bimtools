@@ -1,10 +1,13 @@
 ---
-sidebar_position: 2
+# Copiar este archivo a docs/<etapa>/NN-nombre.md y completar.
+# `estado` (opcional): Disponible | En desarrollo | Planeado
+sidebar_position: 1
 herramienta: true
-etapa: "Etapa 4 · Cuantificar"
+etapa: "Etapa N · Nombre"
+# estado: En desarrollo
 ---
 
-# 11. Presupuesto
+# N. Nombre de la herramienta
 
 ## Qué hace
 
