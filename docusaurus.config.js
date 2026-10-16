@@ -12,23 +12,21 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'BIMTOOLS',
   tagline: 'Documentación de la suite BIMTOOLS para Revit',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  // URL del sitio: SITE_URL si se define; si no, la que Cloudflare Pages expone al compilar
+  // (CF_PAGES_URL); en local, localhost.
+  url: process.env.SITE_URL || process.env.CF_PAGES_URL || 'http://localhost:3000',
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  // El sitio aún no es público: se pide a los buscadores que no lo indexen.
+  // Quitar esta línea (y static/_headers) al publicar.
+  noIndex: true,
 
   onBrokenLinks: 'throw',
 

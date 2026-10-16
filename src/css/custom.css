@@ -23,3 +23,61 @@
   --ifm-background-surface-color: #1a1a1a;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* ---------- Diseño BIMTOOLS ---------- */
+:root {
+  --ifm-font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ifm-heading-font-weight: 700;
+  --ifm-navbar-height: 4rem;
+}
+[data-theme='dark'] {
+  --ifm-navbar-background-color: #141414;
+  --ifm-footer-background-color: #141414;
+  --ifm-color-emphasis-300: #333;
+  --ifm-toc-border-color: #333;
+  --ifm-menu-color-background-active: rgba(245, 168, 0, 0.1);
+}
+.navbar { border-bottom: 1px solid #2c2c2c; box-shadow: none; }
+.navbar__logo { height: 2rem; margin-right: 0.5rem; }
+.navbar__logo + span { margin-left: 0; }
+.menu__link--active:not(.menu__link--sublist) { border-left: 3px solid var(--ifm-color-primary); }
+.button--primary { color: #1a1a1a; font-weight: 700; }
+.button--primary:hover { color: #1a1a1a; }
+
+/* ---------- Layout de página de herramienta (front matter: herramienta: true) ---------- */
+.tool-page { counter-reset: seccion; }
+.tool-page__ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.tool-page__stage,
+.tool-page__status {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tool-page__stage { background: rgba(245, 168, 0, 0.15); color: var(--ifm-color-primary); }
+.tool-page__status { border: 1px solid currentColor; }
+.tool-page__status--disponible { color: #5ecb7b; }
+.tool-page__status--desarrollo { color: var(--ifm-color-primary); }
+.tool-page__status--planeado { color: #9a9a9a; }
+.tool-page h1 { margin-bottom: 2rem; }
+.tool-page h2 {
+  counter-increment: seccion;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-top: 2.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+.tool-page h2::before {
+  content: counter(seccion, decimal-leading-zero);
+  font-size: 0.9rem;
+  color: var(--ifm-color-primary);
+}

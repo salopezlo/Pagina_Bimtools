@@ -1,0 +1,5 @@
+# Cloudflare Pages (y Netlify) leen este archivo desde la raíz de la carpeta publicada.
+# El sitio es privado hasta el lanzamiento: pedir a los buscadores que no lo indexen.
+# Al lanzar: borrar este bloque y quitar `noIndex` de docusaurus.config.js.
+/*
+  X-Robots-Tag: noindex, nofollow
