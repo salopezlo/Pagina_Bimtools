@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# El sitio no es público todavía: que no lo indexen los buscadores.
+# Quitar este bloque al publicar (junto con `noIndex` en docusaurus.config.js).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
