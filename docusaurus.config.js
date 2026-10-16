@@ -19,12 +19,13 @@ const config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // URL del sitio. Netlify define `URL` al compilar; en local se usa localhost.
-  url: process.env.URL || 'http://localhost:3000',
+  // URL del sitio: SITE_URL si se define; si no, la que Cloudflare Pages expone al compilar
+  // (CF_PAGES_URL); en local, localhost.
+  url: process.env.SITE_URL || process.env.CF_PAGES_URL || 'http://localhost:3000',
   baseUrl: '/',
 
   // El sitio aún no es público: se pide a los buscadores que no lo indexen.
-  // Quitar esta línea (y la cabecera X-Robots-Tag de netlify.toml) al publicar.
+  // Quitar esta línea (y static/_headers) al publicar.
   noIndex: true,
 
   onBrokenLinks: 'throw',
